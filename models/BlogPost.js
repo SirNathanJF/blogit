@@ -42,4 +42,4 @@ BlogPost.init(
   }
 );
 
-module.exports = BlogEntry;
+module.exports = BlogPost;
