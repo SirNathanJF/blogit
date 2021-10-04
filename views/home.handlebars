@@ -1,0 +1,17 @@
+{{#each BlogPosts as |BlogPost| }}
+
+  <div class="card blog-post">
+    <header class="card-header">
+      <h2 class="card-header-title">
+        <a href="/blog-entries/{{BlogPost.id}}">{{BlogPost.title}}</a>
+      </h2>
+      <p>Published by {{BlogPost.user.user_name}} on {{format_date BlogPost.date_created}}</p>
+    </header>
+    <div class="card-content">
+      <p>
+        {{BlogPost.content}}
+      </p>
+    </div>
+  </div>
+  
+{{/each}}

@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
     });
 
     const blogEntries = BlogPostData.map((blog) => blog.get({ plain: true }));
-    res.render("homepage", {
+    res.render("home", {
       blogEntries,
       logged_in: req.session.logged_in,
     });
@@ -19,8 +19,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Profile route= renders list of your posts
-router.get("/profile", withAuth, async (req, res) => {
+// dashboard route= renders list of your posts
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -28,7 +28,7 @@ router.get("/profile", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    res.render("profile", {
+    res.render("dashboard", {
       ...user,
       logged_in: true,
     });
